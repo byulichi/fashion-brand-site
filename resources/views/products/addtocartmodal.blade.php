@@ -40,7 +40,9 @@
         </div>
     </div>
 @else
-    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <?php session(['url.intended' => url()->full()]); ?>
+    <div class="modal fade" id="productModal{{ $item->id }}" tabindex="-1"
+        aria-labelledby="productModalLabel{{ $item->id }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -53,7 +55,7 @@
                 <div class="modal-footer">
                     <a href="{{ route('login') }}" class="btn btn-primary">Log In</a>
                     <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    {{-- <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button> --}}
                 </div>
             </div>
         </div>

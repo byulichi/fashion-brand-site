@@ -7,11 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/logout', function () {
-    Auth::logout();
-    return redirect()->to(url()->previous());
-})->name('logout');
-
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
